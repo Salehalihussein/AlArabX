@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Adults-only video catalog demo">
+  <title>NightView — Adults Only</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="ageGate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="gate-card">
+      <div class="brand-mark">NV</div>
+      <p class="eyebrow">ADULTS ONLY</p>
+      <h1 id="gateTitle" data-i18n="gateTitle">Are you 18 or older?</h1>
+      <p data-i18n="gateCopy">This demo is intended for adults only. By continuing, you confirm that you are at least 18 and that viewing this type of content is legal where you live.</p>
+      <div class="gate-actions">
+        <button id="enterBtn" class="button primary" data-i18n="enter">I am 18+ — Enter</button>
+        <button id="leaveBtn" class="button secondary" data-i18n="leave">Leave</button>
+      </div>
+      <small data-i18n="gateNote">Age gate only — it is not identity or age verification.</small>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="NightView home"><span class="brand-mark">NV</span><span>Night<span class="accent">View</span></span></a>
+    <div class="header-tools">
+      <label class="search-wrap"><span class="sr-only" data-i18n="searchLabel">Search videos</span><input id="searchInput" type="search" placeholder="Search videos..." data-i18n-placeholder="searchPlaceholder"></label>
+      <button id="languageBtn" class="button language" type="button" aria-label="Switch language">العربية</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow" data-i18n="heroEyebrow">CURATED VIDEO CATALOG</p>
+        <h1 data-i18n="heroTitle">Discover your next <span class="accent">favorite</span>.</h1>
+        <p class="hero-copy" data-i18n="heroCopy">A clean, searchable catalog for links and embeds you are authorized to share.</p>
+      </div>
+      <div class="hero-badge"><span class="pulse"></span><span data-i18n="adultsOnly">18+ ADULTS ONLY</span></div>
+    </section>
+
+    <nav class="filters" aria-label="Video categories">
+      <button class="chip active" data-category="all" data-i18n="all">All</button>
+      <button class="chip" data-category="featured" data-i18n="featured">Featured</button>
+      <button class="chip" data-category="popular" data-i18n="popular">Popular</button>
+      <button class="chip" data-category="new" data-i18n="new">Recently added</button>
+    </nav>
+
+    <section class="section-heading">
+      <div><p class="eyebrow" data-i18n="libraryEyebrow">THE LIBRARY</p><h2 data-i18n="libraryTitle">Explore videos</h2></div>
+      <span id="resultCount" class="result-count"></span>
+    </section>
+    <section id="videoGrid" class="video-grid" aria-live="polite"></section>
+
+    <section class="notice">
+      <strong data-i18n="noticeTitle">Content and rights notice</strong>
+      <p data-i18n="noticeCopy">Only add lawful material featuring consenting adults, and only use videos you own or are explicitly permitted to embed. Do not download, scrape, rehost, or bypass restrictions on third-party services. Remove reported or unauthorized material promptly.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© <span id="year"></span> NightView</span><span data-i18n="footerText">Adults-only demo catalog · External embeds only</span></footer>
+
+  <div id="playerModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="playerTitle">
+      <button id="closeModal" class="close-button" aria-label="Close">×</button>
+      <h2 id="playerTitle">Video</h2>
+      <div id="playerFrame" class="player-frame"></div>
+      <p id="playerFallback" class="player-fallback"></p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
